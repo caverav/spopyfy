@@ -1,0 +1,51 @@
+CREATE TABLE personas(
+	id INTEGER,
+	nombre VARCHAR NOT NULL,
+	apellido VARCHAR,
+	email VARCHAR NOT NULL,
+	password VARCHAR NOT NULL,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE usuarios(
+	suscripcion_activa BOOL,
+	PRIMARY KEY(id)
+) INHERITS (personas);
+
+CREATE TABLE artistas(
+	nombre_artistico VARCHAR,
+	verificado BOOL,
+	PRIMARY KEY(id)
+) INHERITS (personas);
+
+CREATE TABLE canciones(
+	id INTEGER,
+	nombre VARCHAR NOT NULL,
+	letra VARCHAR,
+	fecha_composicion DATE,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE album(
+	id INTEGER,
+	nombre VARCHAR,
+	imagen VARCHAR,
+	fecha_lanzamiento DATE,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE artista_compuso_cancion(
+	id_artista INTEGER,
+	id_cancion INTEGER,
+	PRIMARY KEY(id_artista, id_cancion),
+	FOREIGN KEY(id_artista) REFERENCES artistas(id),
+	FOREIGN KEY(id_cancion) REFERENCES canciones(id)
+);
+
+CREATE TABLE album_tiene_cancion(
+	id_album INTEGER,
+	id_cancion INTEGER,
+	PRIMARY KEY(id_album, id_cancion),
+	FOREIGN KEY(id_album) REFERENCES album(id),
+	FOREIGN KEY(id_cancion) REFERENCES canciones(id)
+);
