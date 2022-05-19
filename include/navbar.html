@@ -1,10 +1,20 @@
 <?php include 'header.html'; ?>
-<body class="bg-pink-100">
-    <nav class="shadow-lg">
-        <div class="flex justify-center text-2xl text-white bg-pink-600">
-            <a class="p-6 hover:underline" href="../index.html">Inicio</a>
-            <a class="p-6 hover:underline" href="../html/who.html">Quienes Somos</a>
-            <a class="p-6 hover:underline" href="../html/tabla.html">Tabla</a>
-            <a class="p-6 hover:underline" href="#">Chiste</a>
+
+<body class="bg-primary-600">
+    <nav class="fixed top-0 w-full shadow-lg opacity-80">
+        <div class="flex justify-center text-xl bg-black text-tertiary-500">
+            <!-- Se cambia a un loop para un manejo más eficiente de las clases ya que se repetía mucho (es más cómodo que al cambiar uno cambien todos) -->
+            <?php
+                $navArray = array(
+                    array("name" => "Inicio", "link" => "../index.html"),
+                    array("name" => "Quienes Somos", "link" => "../html/who.html"),
+                    array("name" => "Tabla", "link" => "../html/tabla.html"),
+                    array("name" => "Chiste", "link" => "#")
+                );
+                foreach ($navArray as $nav) {
+                    echo "<a class='p-6 font-bold hover:text-secondary-500' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";
+                }
+            ?>
         </div>
     </nav>
+    <div class="p-12"></div>

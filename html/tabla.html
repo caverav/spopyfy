@@ -1,10 +1,10 @@
 <?php include '../include/navbar.html'; ?>
 
-<h1 class="p-3 text-4xl font-bold text-center">Usuarios</h1>
-<div class="container mx-auto">
+<h1 class="text-5xl font-bold text-center p-9 text-tertiary-500">Usuarios</h1>
+<div class="container mx-auto w-[70%]">
     <?php include '../include/alert.php'; ?>
     <div class="flex justify-end pb-5">
-        <button type="button" class="px-6 py-2 bg-pink-300 rounded shadow hover:bg-pink-400">
+        <button type="button" class="px-6 py-2 rounded shadow bg-secondary-500 hover:opacity-80">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="mx-auto"
                 viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
@@ -18,7 +18,7 @@
     <div class="mx-auto border border-white rounded shadow">
         <div class="w-full">
             <table class="w-full text-2xl text-center border-collapse">
-                <thead class="bg-pink-200">
+                <thead class="bg-secondary-900">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col-2">First</th>
@@ -28,14 +28,14 @@
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="bg-secondary-500">
                     <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
                         <td>
-                            <button type="button border border-primary" class="btn btn-sm">
+                            <button type="button border border-primary-500" class="btn btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue"
                                     class="bi bi-pencil" viewBox="0 0 16 16">
                                     <path
@@ -57,7 +57,7 @@
                         </td>
 
                     </tr>
-                    <tr>
+                    <tr class="bg-secondary-600">
                         <th scope="row">2</th>
                         <td>Jacob</td>
                         <td>Thornton</td>
