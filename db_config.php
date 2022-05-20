@@ -1,6 +1,10 @@
 <?php
 /* Detalles de la conexión */
-$conn_string = "host=".getenv('PGHOST')." port=5432"." dbname=".getenv('PGDATABASE')." user=".getenv('PGUSER')." password=".getenv('PGPASSWORD');
+// $conn_string = "host=localhost port=5432 dbname=spopyfy user=postgres password=postgres";
+require_once 'creds.php';
+
+$conn_string = "host=" . $host . " port=" . $port . " dbname=" . $dbname . " user=" . $user . " password=" . $password;
+
 // Establecemos una conexión con el servidor postgresSQL
 $dbconn = pg_connect($conn_string);
 
