@@ -1,26 +1,22 @@
-<html>
-<head>
-    <link href="../style/style.css" rel="stylesheet">
-</head>
-<body class="bg-pink-100">
-    <nav class="shadow-lg">
-        <div class="flex justify-center text-2xl text-white bg-pink-600">
-            <a class="p-6 hover:underline" href="../index.html">Inicio</a>
-        </div>
-    </nav>
+<?php include '../include/navbar.html'; ?>
 
-    <div class="box-border absolute p-5 text-white -translate-x-1/2 -translate-y-1/2 bg-black w-80 h-3/5 top-1/2 left-1/2">
-        <h1 class="px-0 pt-0 pb-5 m-0 text-lg text-center">Ingresa aquí</h1>
-        <form>
-            <p m-0 p-0 font-bold>Usuario</p>
-            <input type="text" name="" placeholder="Ingresa tu usuario" class="w-full h-10 mb-5 text-lg bg-transparent border-b-2 border-white outline-none">
-            <p m-0 p-0 font-bold>Contraseña</p>
-            <input type="password" name="" placeholder="Ingresa tu contraseña" class="w-full h-10 mb-5 text-lg bg-transparent border-b-2 border-white outline-none">
-            <input type="submit" name="" value="Iniciar Sesión" class="w-full h-10 mb-5 font-medium text-black bg-red-400 border-r-8 border-none outline-none pointer-events-auto hover:bg-red-300">
-            <a href="#">¿Contraseña olvidada?</a><br>
-            <a href="#">Registrarse</a>
-        </form>
-      </div>
+<div
+    class="box-border rounded-lg shadow-md p-5 mx-auto text-tertiary-500 bg-black w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%]">
+    <h1 class="px-0 pt-0 pb-5 m-0 text-lg text-center">Ingresa aquí</h1>
+    <form>
+        <p m-0 p-0 font-bold>Usuario</p>
+        <input type="text" name="" placeholder="Ingresa tu usuario"
+            class="w-full h-10 mb-5 text-lg bg-transparent border-b-2 border-white outline-none">
+        <p m-0 p-0 font-bold>Contraseña</p>
+        <input type="password" name="" placeholder="Ingresa tu contraseña"
+            class="w-full h-10 mb-5 text-lg bg-transparent border-b-2 border-white outline-none">
+        <input type="submit" name="" value="Iniciar Sesión"
+            class="w-full h-10 mb-5 font-medium text-black border-r-8 border-none outline-none bg-secondary-900 hover:bg-red-300">
+        <a href="#">¿Contraseña olvidada?</a><br>
+        <a href="#">Registrarse</a>
+    </form>
+</div>
 
 </body>
+
 </html>
