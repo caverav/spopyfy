@@ -1,6 +1,6 @@
 CREATE TABLE personas(
-	id INTEGER,
-	nombre VARCHAR NOT NULL,
+	id INTEGER GENERATED ALWAYS AS IDENTITY,
+	nombre VARCHAR,
 	apellido VARCHAR,
 	email VARCHAR NOT NULL,
 	password VARCHAR NOT NULL,
@@ -19,15 +19,15 @@ CREATE TABLE artistas(
 ) INHERITS (personas);
 
 CREATE TABLE canciones(
-	id INTEGER,
-	nombre VARCHAR NOT NULL,
+	id INTEGER GENERATED ALWAYS AS IDENTITY,
+	nombre VARCHAR,
 	letra VARCHAR,
 	fecha_composicion DATE,
 	PRIMARY KEY(id)
 );
 
 CREATE TABLE album(
-	id INTEGER,
+	id INTEGER GENERATED ALWAYS AS IDENTITY,
 	nombre VARCHAR,
 	imagen VARCHAR,
 	fecha_lanzamiento DATE,
