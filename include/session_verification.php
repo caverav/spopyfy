@@ -2,8 +2,12 @@
 
 session_start();
 
+//TODO: SOLO DIRIGE A USUARIO NORMAL, NO ARTISTA
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    echo "Welcome to the member's area, " . htmlspecialchars($_SESSION['email']) . "!";
+    header("Location: ../html/index_usuario.html");
 } else {
-    echo "Please log in first to see this page.";
+    
 }
+
+?>
