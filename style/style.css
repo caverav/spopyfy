@@ -581,8 +581,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 10rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .flex {
