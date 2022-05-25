@@ -1,0 +1,26 @@
+<?php include 'header.html';?>
+
+<body class="bg-primary-600">
+    <nav class="fixed top-0 w-full shadow-lg opacity-80">
+        <div class="flex justify-evenly text-xl bg-black text-tertiary-500">
+            <!-- BOTONES DE INICIO, ETC -->
+            <div class="p-6">
+                <!-- Se cambia a un loop para un manejo más eficiente de las clases ya que se repetía mucho (es más cómodo que al cambiar uno cambien todos) -->
+                <?php
+                $navArray = array(
+                    array("name" => "Inicio", "link" => "../index.html"),
+                    array("name" => "Quienes Somos", "link" => "../html/who.html")
+                );
+                foreach ($navArray as $nav) {
+                    echo "<a class='p-6 font-bold hover:text-secondary-500' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";
+                }
+                ?>
+            </div>
+            <!-- LOGIN -->
+            <div class="p-6">
+                
+                <a class='p-6 font-bold hover:text-secondary-500' href='#'></a>
+             </div>
+        </div>
+    </nav>
+    <div class="p-12"></div>
