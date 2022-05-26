@@ -1,12 +1,12 @@
 <?php
-    require("../creds.php");
+    require dirname(__DIR__).'/db_config.php';
 
     $email = $_POST["email"];
     $password = $_POST["password"];
 
     // Obtenemos la contraseña hasheada del usuario de la BD.
     $sql_statement = "SELECT password, nombre, apellido FROM usuarios WHERE email = $1;";
-    $result = pg_query_params($db_conn, $sql_statement, array($email));
+    $result = pg_query_params($dbconn, $sql_statement, array($email));
 
     // Si no se pudo obtener la contraseña... Pánico.
     if (!$result) {
