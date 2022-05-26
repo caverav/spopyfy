@@ -1,5 +1,5 @@
 <?php
-    require("../creds.php");
+    include_once "../db_config.php";
 
     $email = $_POST["email"];
     $password = $_POST["password"];

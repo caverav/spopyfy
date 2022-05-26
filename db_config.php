@@ -1,5 +1,6 @@
 <?php
-    $conn_string = "host=".getenv('PGHOST')." port=5432"." dbname=".getenv('PGDATABASE')." user=".getenv('PGUSER')." password=".getenv('PGPASSWORD');
+    require_once 'creds.php';
+    $conn_string = "host=" . $host . " port=" . $port . " dbname=" . $dbname . " user=" . $user . " password=" . $password;
 
     $dbconn = pg_connect($conn_string);
 
@@ -10,4 +11,3 @@
     /* Para incluir la configuración de este archivo en otro archivo .php utilice 
     <?php include $_SERVER['DOCUMENT_ROOT'].'/db_config.php'; ?>
     */
-?>
