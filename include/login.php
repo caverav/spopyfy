@@ -21,11 +21,11 @@
 
     $password_hashed = $row[0];
 
-    /*if (password_verify($password, $password_hashed)) {
+    if (password_verify($password, $password_hashed)) {
         session_start();
         $_SESSION["email"] = $email;
         echo("¡Credenciales correctas!");
-    }*/
+    }
 
     session_start();
     $_SESSION["email"] = $email;
