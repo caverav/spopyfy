@@ -13,4 +13,6 @@
     $password_hashed = password_hash($password, PASSWORD_DEFAULT);
     $sql_statement = "INSERT INTO personas(email, password, nombre, apellido) VALUES ($1, $2, $3, $4);";
     $result = pg_query_params($dbconn, $sql_statement, array($email, $password_hashed, $nombre, $apellido));
+
+    header("Location: ../login.html?success");
 ?>
