@@ -5,7 +5,7 @@
     $password = $_POST["password"];
 
     // Obtenemos la contraseña hasheada del usuario de la BD.
-    $sql_statement = "SELECT password, nombre, apellido FROM usuarios WHERE email = $1;";
+    $sql_statement = "SELECT password, nombre, apellido FROM personas WHERE email = $1;";
     $result = pg_query_params($dbconn, $sql_statement, array($email));
 
     // Si no se pudo obtener la contraseña... Pánico.
@@ -16,8 +16,6 @@
     //TODO: Crear contraseña hasheada
 
     $row = pg_fetch_row($result);
-
-    echo "$row";
 
     $password_hashed = $row[0];
 
