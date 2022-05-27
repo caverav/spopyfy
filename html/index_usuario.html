@@ -4,7 +4,7 @@
 
 <?php
     session_start();
-    echo "Welcome to the member's area, " . htmlspecialchars($_SESSION['email']) . "!";
+    echo htmlspecialchars($_SESSION['nombre']) . " " . htmlspecialchars($_SESSION['apellido']);
 ?>
 
 

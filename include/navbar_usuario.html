@@ -1,8 +1,8 @@
 <?php include 'header.html';?>
 
 <body class="bg-primary-600">
-    <nav class="fixed top-0 w-full shadow-lg opacity-80">
-        <div class="flex text-xl bg-black justify-evenly text-tertiary-500">
+    <nav class="fixed top-0 w-full shadow-lg opacity-80 ">
+        <div class="flex justify-between my-0 mx-auto items-center text-xl bg-black  text-tertiary-500">
             <!-- BOTONES DE INICIO, ETC -->
             <div class="p-6">
                 <!-- Se cambia a un loop para un manejo más eficiente de las clases ya que se repetía mucho (es más cómodo que al cambiar uno cambien todos) -->
@@ -16,10 +16,23 @@
                 }
                 ?>
             </div>
-            <!-- LOGOUT -->
-            <div class="p-6">
-                <a class="p-6 font-bold hover:text-secondary-500" href="../include/logout.php">Logout</a>
+            <!-- DROPDOWN -->
+            
+            <div class="relative pr-4">
+                <button class="static p-6 h-11 bg-blue-700 round-lg shadow-none outline-none cursor-pointer font-bold hover:text-secondary-500" href="../include/logout.php">
+                    <?php
+                        session_start();
+                        echo htmlspecialchars($_SESSION['nombre']) . " " . htmlspecialchars($_SESSION['apellido']);
+                    ?>
+                </button>
+            
+                <div class="absolute top-auto mt-2 py-2 bg-white rounded-lg shadow-xl">
+                    <a class="block px-4 py-2 text-black hover:bg-indigo-400" href="">Perfil</a>
+                    <a class="block px-4 py-2 text-black hover:bg-indigo-400" href="">Canciones</a>
+                </div>
             </div>
         </div>
     </nav>
     <div class="p-12"></div>
+
+    <script src="../js/menu.js"></script>
