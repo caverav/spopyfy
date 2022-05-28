@@ -2,7 +2,7 @@
 
 <body class="bg-primary-600">
     <nav class="fixed top-0 w-full shadow-lg opacity-80 ">
-        <div class="flex justify-between my-0 mx-auto items-center text-xl bg-black  text-tertiary-500">
+        <div class="flex items-center justify-between mx-auto my-0 text-xl bg-black text-tertiary-500">
             <!-- BOTONES DE INICIO, ETC -->
             <div class="p-6">
                 <!-- Se cambia a un loop para un manejo más eficiente de las clases ya que se repetía mucho (es más cómodo que al cambiar uno cambien todos) -->
@@ -19,14 +19,14 @@
             <!-- DROPDOWN -->
             
             <div class="relative pr-4">
-                <button class="static p-6 h-11 bg-blue-700 round-lg shadow-none outline-none cursor-pointer font-bold hover:text-secondary-500" href="../include/logout.php">
+                <button class="static p-6 font-bold bg-blue-700 shadow-none outline-none cursor-pointer h-11 round-lg hover:text-secondary-500" href="../include/logout.php">
                     <?php
                         session_start();
                         echo htmlspecialchars($_SESSION['nombre']) . " " . htmlspecialchars($_SESSION['apellido']);
                     ?>
                 </button>
             
-                <div class="absolute top-auto mt-2 py-2 bg-white rounded-lg shadow-xl">
+                <div class="absolute top-auto py-2 mt-2 bg-white rounded-lg shadow-xl">
                     <a class="block px-4 py-2 text-black hover:bg-indigo-400" href="">Perfil</a>
                     <a class="block px-4 py-2 text-black hover:bg-indigo-400" href="">Canciones</a>
                 </div>
