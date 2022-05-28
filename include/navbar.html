@@ -1,10 +1,10 @@
 <?php include 'header.html'; ?>
 
 <body class="bg-primary-600">
-    <nav class="fixed top-0 w-full shadow-lg opacity-80">
-        <div class="flex justify-evenly text-xl bg-black text-tertiary-500">
+    <nav class="w-full py-5 bg-black shadow-lg">
+        <div class="flex justify-around text-xl text-tertiary-500">
             <!-- BOTONES DE INICIO, ETC -->
-            <div class="p-6">
+            <div class="hidden p-6 sm:inline">
                 <!-- Se cambia a un loop para un manejo más eficiente de las clases ya que se repetía mucho (es más cómodo que al cambiar uno cambien todos) -->
                 <?php
                 $navArray = array(
@@ -16,11 +16,49 @@
                 }
                 ?>
             </div>
-            <!-- LOGIN -->
-            <div class="p-6">
-                
-                <a class='p-6 font-bold hover:text-secondary-500' href='../html/login.html'> Log In </a>
-             </div>
+            <button class="flex sm:hidden burger">
+                <div class="space-y-2">
+                    <span class="block w-8 h-0.5 bg-gray-100 animate-pulse"></span>
+                    <span class="block w-8 h-0.5 bg-gray-100 animate-pulse"></span>
+                    <span class="block w-8 h-0.5 bg-gray-100 animate-pulse"></span>
+                </div>
+            </button>
+            <!-- mobile menu  -->
+            <div class='fixed top-0 left-0 flex-col hidden w-screen h-screen bg-black mobile-menu'>
+                <button class='fixed text-2xl right-4 top-4 cross'>X</button>
+                <div class="flex flex-col items-center justify-center h-full">
+                    <?php
+                    foreach ($navArray as $nav) {
+                        echo "<a class='p-6 font-bold border-white hover:text-secondary-500 ' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <!-- Mobile burger menu -->
+            <?php session_start();
+            //TODO: Diferenciar entre artista y normal
+            if (isset($_SESSION['nombre'])) {
+                echo "
+                    <div class='p-6'>
+                        <button class='user' href=''>
+                            " . htmlspecialchars($_SESSION['nombre']) . " " . htmlspecialchars($_SESSION['apellido']) . "
+                        </button>
+                        <div class='absolute top-auto hidden py-2 mt-2 bg-white rounded-lg shadow-xl profile'>
+                            <a class='block px-4 py-2 text-black hover:bg-indigo-400' href=''>Perfil</a>
+                            <a class='block px-4 py-2 text-black hover:bg-indigo-400' href=''>Canciones</a>
+                            <a class='block px-4 py-2 text-black hover:bg-indigo-400' href='../include/logout.php'>Cerrar Sesión</a>
+                        </div>
+                    </div>
+                ";
+            } else {
+                echo "
+                    <div class='p-6'>
+                        <a class='p-6 font-bold hover:text-secondary-500' href='../html/login.html'> Log In </a>
+                    </div>
+                ";
+            } ?>
         </div>
     </nav>
+    <script src="../js/burger.js"></script>
     <div class="p-12"></div>
