@@ -1,26 +1,34 @@
-<?php include 'header.html'; ?>
-
-<body class="bg-primary-600">
-    <nav class="w-full py-5 bg-black shadow-lg">
+<?php
+    include 'header.html';
+    $profileArray = array(
+        array("name" => "Perfil", "link" => "../html/perfil_usuario.html"),
+        array("name" => "Canciones", "link" => "../html/canciones.html"),
+        array("name" => "Cerrar Sesión", "link" => "../include/logout.php"),
+    );
+    $navArray = array(
+        array("name" => "Inicio", "link" => "../index.html"),
+        array("name" => "Quienes Somos", "link" => "../html/who.html")
+    );
+    $blocks = "";
+?>
+<body class="bg-pink-100">
+    <nav class="w-full py-5 bg-pink-600 shadow-lg">
         <div class="flex justify-around text-xl text-tertiary-500">
             <!-- BOTONES DE INICIO, ETC -->
             <div class="hidden p-6 sm:inline">
                 <!-- Se cambia a un loop para un manejo más eficiente de las clases ya que se repetía mucho (es más cómodo que al cambiar uno cambien todos) -->
                 <?php
-                $navArray = array(
-                    array("name" => "Inicio", "link" => "../index.html"),
-                    array("name" => "Quienes Somos", "link" => "../html/who.html")
-                );
                 foreach ($navArray as $nav) {
                     echo "<a class='p-6 font-bold hover:text-secondary-500' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";
                 }
                 ?>
             </div>
-            <button class="flex sm:hidden burger">
-                <div class="space-y-2">
-                    <span class="block w-8 h-0.5 bg-gray-100 animate-pulse"></span>
-                    <span class="block w-8 h-0.5 bg-gray-100 animate-pulse"></span>
-                    <span class="block w-8 h-0.5 bg-gray-100 animate-pulse"></span>
+            <!-- Burger button B) -->
+            <button class="flex p-6 sm:hidden burger active:animate-ping">
+                <div class="space-y-3">
+                    <span class="block w-9 h-0.5 bg-gray-100"></span>
+                    <span class="block w-9 h-0.5 bg-gray-100"></span>
+                    <span class="block w-9 h-0.5 bg-gray-100"></span>
                 </div>
             </button>
             <!-- mobile menu  -->
@@ -35,29 +43,25 @@
                 </div>
             </div>
 
-            <!-- Mobile burger menu -->
-            <?php session_start();
+            <?php
+            session_start();
             //TODO: Diferenciar entre artista y normal
             if (isset($_SESSION['nombre'])) {
-                echo "
-                    <div class='p-6'>
-                        <button class='user' href=''>
-                            " . htmlspecialchars($_SESSION['nombre']) . " " . htmlspecialchars($_SESSION['apellido']) . "
-                        </button>
-                        <div class='absolute top-auto hidden py-2 mt-2 bg-white rounded-lg shadow-xl profile'>
-                            <a class='block px-4 py-2 text-black hover:bg-indigo-400' href='../html/perfil_usuario.html'>Perfil</a>
-                            <a class='block px-4 py-2 text-black hover:bg-indigo-400' href='../html/canciones.html'>Canciones</a>
-                            <a class='block px-4 py-2 text-black hover:bg-indigo-400' href='#'>¿Te gustaría ser un artista?</a>
-                            <a class='block px-4 py-2 text-black hover:bg-indigo-400' href='../include/logout.php'>Cerrar Sesión</a>
-                        </div>
-                    </div>
-                ";
+                foreach ($profileArray as $nav) {
+                    $blocks .= "<a class='block px-4 py-2 text-black hover:bg-indigo-400' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";
+                }
+                echo "  <div class='p-6'>
+                            <button class='user' href=''>
+                                " . htmlspecialchars($_SESSION['nombre']) . " " . htmlspecialchars($_SESSION['apellido']) . "
+                            </button>
+                            <div class='absolute top-auto hidden py-2 mt-2 bg-white rounded-lg shadow-xl profile'>
+                                " . $blocks . "
+                            </div>
+                        </div>";
             } else {
-                echo "
-                    <div class='p-6'>
-                        <a class='p-6 font-bold hover:text-secondary-500' href='../html/login.html'> Log In </a>
-                    </div>
-                ";
+                echo "  <div class='p-6'>
+                            <a class='p-6 font-bold hover:text-secondary-500' href='../html/login.html'> Log In </a>
+                        </div>";
             } ?>
         </div>
     </nav>
