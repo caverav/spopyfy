@@ -655,6 +655,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
 }
 
+.mx-\[2\%\] {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -668,41 +673,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mx-\[35\%\] {
   margin-left: 35%;
   margin-right: 35%;
-}
-
-.mx-0 {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-.mx-\[5\%\] {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.mx-\[1\%\] {
-  margin-left: 1%;
-  margin-right: 1%;
-}
-
-.mx-\[auto\] {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mx-\[2\%\] {
-  margin-left: 2%;
-  margin-right: 2%;
 }
 
 .mt-4 {
@@ -893,8 +863,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100%;
 }
 
-.w-\[70\%\] {
-  width: 70%;
+.w-\[90\%\] {
+  width: 90%;
 }
 
 .w-4 {
@@ -919,10 +889,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-6 {
   width: 1.5rem;
-}
-
-.w-\[90\%\] {
-  width: 90%;
 }
 
 .flex-1 {
@@ -1829,11 +1795,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
 .border-primary-500 {
   --tw-border-opacity: 1;
   border-color: rgb(58 64 90 / var(--tw-border-opacity));
@@ -2147,6 +2108,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 0.25rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pt-16 {
   padding-top: 4rem;
 }
@@ -2353,11 +2319,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-pink-900 {
-  --tw-text-opacity: 1;
-  color: rgb(131 24 67 / var(--tw-text-opacity));
-}
-
 .text-pink-500 {
   --tw-text-opacity: 1;
   color: rgb(236 72 153 / var(--tw-text-opacity));
@@ -2381,11 +2342,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-gray-100 {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
-}
-
-.text-pink-700 {
-  --tw-text-opacity: 1;
-  color: rgb(190 24 93 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -2896,12 +2852,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 24rem;
   }
 
-  .sm\:w-32 {
-    width: 8rem;
-  }
-
   .sm\:w-\[70\%\] {
     width: 70%;
+  }
+
+  .sm\:w-32 {
+    width: 8rem;
   }
 
   .sm\:flex-col {
