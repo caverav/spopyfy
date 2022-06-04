@@ -1,6 +1,6 @@
 CREATE TABLE personas(
 	id INTEGER GENERATED ALWAYS AS IDENTITY,
-	nombre VARCHAR,
+	nombre VARCHAR NOT NULL,
 	apellido VARCHAR,
 	email VARCHAR NOT NULL,
 	password VARCHAR NOT NULL,
@@ -8,11 +8,13 @@ CREATE TABLE personas(
 );
 
 CREATE TABLE usuarios(
+	id INTEGER GENERATED ALWAYS AS IDENTITY,
 	suscripcion_activa BOOL,
 	PRIMARY KEY(id)
 ) INHERITS (personas);
 
 CREATE TABLE artistas(
+	id INTEGER GENERATED ALWAYS AS IDENTITY,
 	nombre_artistico VARCHAR,
 	verificado BOOL,
 	PRIMARY KEY(id)

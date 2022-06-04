@@ -1,5 +1,6 @@
 <?php
     include 'header.html';
+    // VARIABLES
     $profileArray = array(
         array("name" => "Perfil", "link" => "../html/perfil_usuario.html"),
         array("name" => "Canciones", "link" => "../html/canciones.html"),
@@ -12,7 +13,7 @@
     $blocks = "";
 ?>
 <body class="bg-pink-100">
-    <nav class="w-full py-5 bg-pink-600 shadow-lg">
+    <nav class="w-full py-3 bg-pink-600 shadow-lg">
         <div class="flex justify-around text-xl text-tertiary-500">
             <!-- BOTONES DE INICIO, ETC -->
             <div class="hidden p-6 sm:inline">
@@ -23,6 +24,7 @@
                 }
                 ?>
             </div>
+
             <!-- Burger button B) -->
             <button class="flex p-6 sm:hidden burger active:animate-ping">
                 <div class="space-y-3">
@@ -31,6 +33,7 @@
                     <span class="block w-9 h-0.5 bg-gray-100"></span>
                 </div>
             </button>
+
             <!-- mobile menu  -->
             <div class='fixed top-0 left-0 flex-col hidden w-screen h-screen bg-black mobile-menu'>
                 <button class='fixed text-2xl right-4 top-4 cross'>X</button>
@@ -45,7 +48,7 @@
 
             <?php
             session_start();
-            //TODO: Diferenciar entre artista y normal
+            // TODO: Diferenciar entre artista y normal
             if (isset($_SESSION['nombre'])) {
                 foreach ($profileArray as $nav) {
                     $blocks .= "<a class='block px-4 py-2 text-black hover:bg-indigo-400' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";
@@ -66,4 +69,3 @@
         </div>
     </nav>
     <script src="../js/burger.js"></script>
-    <div class="p-12"></div>

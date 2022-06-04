@@ -8,7 +8,7 @@
 
             <h1 class="text-xs tracking-wider text-center text-gray-700 uppercase">Perfil</h1>
 
-            <div class="grid grid-cols-2 gap-2 p-3">
+            <div class="p-3 grid grid-cols-2 gap-2">
 
                 <div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">
                     Nombre completo: <?php
@@ -24,6 +24,13 @@
                 ?>
                 </div>
 
+                <div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">
+                    Suscripción: <?php
+                    session_start();
+                    echo htmlspecialchars($_SESSION['suscripcion_activa']);
+                ?>
+                </div>
+            </div>
         </main>
     </div>
 </body>
