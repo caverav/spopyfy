@@ -1,5 +1,5 @@
 <!-- BARRA LATERAL -->
-<aside class="fixed inset-y-0 z-10 hidden w-64 pt-16 overflow-x-hidden overflow-y-auto text-white bg-gray-700 sm:block">
+<aside class="absolute z-10 hidden w-64 pt-16 overflow-x-hidden overflow-y-auto text-white bg-gray-700 inset-y-2 sm:block">
     <div class="min-h-full p-4 mt-[116px]">
 
         <!-- Extract: user_info blade partial -->
