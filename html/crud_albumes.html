@@ -58,7 +58,7 @@
                     }
                     while ($row = pg_fetch_row($result_users)) {
                         echo '<div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">';
-                        echo '<a href="crud_canciones.php?id_album='.htmlspecialchars($row[0]).'">';
+                        echo '<a href="../include/editar_album.php?id='.htmlspecialchars($row[0]).'">';
                         echo '<img src="'.htmlspecialchars($row[2]).'" alt="'.htmlspecialchars($row[1]).'" class="object-cover w-full h-64 rounded">';
                         echo '<h2 class="p-2 text-xs tracking-wider text-center text-gray-700 uppercase">'.htmlspecialchars($row[1]).'</h2>';
                         echo '</a>';

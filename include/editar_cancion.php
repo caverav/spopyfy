@@ -3,7 +3,7 @@
 <?php include '../db_config.php'; ?>
 <?php
 //TODO: dejarlo bonito y asegurarse de que se pueda editar la cancion
-ini_set('display_errors', 1);
+
 
 if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     $id = $_POST['id'];
@@ -24,7 +24,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'update') {
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
     $letra = $_POST['letra'];
-    $fecha_lanzamiento = $_POST['fecha'];
+    $fecha_lanzamiento = $_POST['fecha_composicion'];
 
     $sql = "UPDATE canciones SET nombre=$1, letra=$2, fecha_composicion=$3 WHERE id=$4";
     $result = pg_query_params($dbconn, $sql, array($nombre, $letra, $fecha_lanzamiento, $id));
@@ -74,7 +74,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'update') {
                 Eliminar canción
             </button>
             <button class="px-4 py-2 font-bold text-white bg-pink-500 rounded hover:bg-pink-700 focus:outline-none focus:shadow-outline" type="submit" name="action" value="update">
-                Agregar canción
+                Modificar canción
             </button>
         </div>';
         echo '</form>';
