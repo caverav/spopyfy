@@ -1,6 +1,6 @@
 <!-- BARRA LATERAL -->
-<aside class="absolute z-10 hidden w-64 pt-16 overflow-x-hidden overflow-y-auto text-white bg-gray-700 inset-y-2 sm:block">
-    <div class="min-h-full p-4 mt-[116px]">
+<aside class="fixed z-10 hidden items-start h-full w-64 pt-16 overflow-x-hidden overflow-y-auto text-white bg-gray-700 sm:block">
+    <div class="min-h-max p-4">
 
         <!-- Extract: user_info blade partial -->
         <div class="flex items-center px-6 pb-6 border-b border-gray-100 sm:flex-col">
