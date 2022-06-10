@@ -1,32 +1,32 @@
 <?php include '../include/header.html'; ?>
 
-<body class="bg-pink-100">
+<body class="bg-pink-100 bg-cover bg-pixel">
     <nav class="shadow-lg">
-        <div class="flex justify-center text-2xl text-white bg-pink-600">
+        <div class="flex justify-center text-2xl text-white bg-gradient-to-r to-purple-500 from-pink-500">
             <a class="p-6 hover:underline" href="../index.html">Inicio</a>
         </div>
     </nav>
 
     <?php include '../include/alert.php'; ?>
 
-        <div class="box-border text-white bg-black rounded-lg mx-auto grid mt-[15vh] p-9 w-80 sm:w-96 md:w-[26rem] top-1/2 left-1/2">
+        <div class="box-border text-white bg-gray-700 rounded-lg mx-auto grid mt-[15vh] p-9 w-80 sm:w-96 md:w-[26rem] top-1/2 left-1/2">
             <h1 class="px-0 pt-0 pb-5 m-0 text-lg text-center">¡Bienvenido de vuelta!</h1>
             <form action="../include/login.php" method="POST">
                 <p m-0 p-0 font-bold>Correo</p>
                 <input type="email" id="email" name="email" placeholder="Ingresa tu correo" class="w-full h-10 mb-5 text-lg bg-transparent border-b-2 border-white outline-none">
                 <p m-0 p-0 font-bold>Contraseña</p>
                 <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" class="w-full h-10 mb-5 text-lg bg-transparent border-b-2 border-white outline-none">
-                <input type="submit" name="" value="Iniciar Sesión" class="w-full h-10 mb-5 font-medium text-black bg-red-400 border-r-8 border-none rounded-lg outline-none pointer-events-auto hover:bg-red-300">
+                <input type="submit" name="" value="Iniciar Sesión" class="w-full h-10 mb-5 font-medium text-white border-r-8 border-none rounded-lg outline-none pointer-events-auto bg-gradient-to-r to-purple-500 from-pink-500 hover:bg-red-300">
             </form>
 
             <div class="text-center">
                 <a href="#">¿Contraseña olvidada?</a><br>
                 <a href="register.html">Registrarse</a>
             </div>
-            
+
           </div>
-                    
-    
+
+
 
 </body>
 </html>

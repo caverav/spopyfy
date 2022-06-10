@@ -2,6 +2,9 @@ module.exports = {
   content: ["./**/*.{html,js,php}"],
   theme: {
     extend: {
+      backgroundImage: {
+        'pixel': "url('/assets/back.png')",
+      },
       colors: {
         "primary": {
           "50": "#6c728c",
