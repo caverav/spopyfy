@@ -1,7 +1,9 @@
 <?php include '../include/navbar.html' ?>
 <?php include '../db_config.php' ?>
 <?php
-    //Agregar canciones
+    if($_SESSION['tipo'] !== "artista"){
+        header("Location: ../index.html");
+    }
     if(isset($_POST['ADD_ALBUM']) && $_POST['ADD_ALBUM'] == "true"){
         $sql = "INSERT INTO album (nombre, imagen, fecha_lanzamiento) VALUES ($1, $2, $3)";
         $result = pg_query_params($dbconn, $sql, array($_POST['nombre'], $_POST['imagen'], $_POST['fecha_lanzamiento']));

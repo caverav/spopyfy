@@ -3,6 +3,9 @@
 <?php
     session_start();
     //Agregar canciones
+    if($_SESSION['tipo'] !== "artista"){
+        header("Location: ../index.html");
+    }
     if(isset($_POST['ADD_SONG']) && $_POST['ADD_SONG'] == "true"){
         $sql = "INSERT INTO canciones (nombre, letra, fecha_composicion) VALUES ($1, $2, $3) RETURNING id";
         $result = pg_query_params($dbconn, $sql, array($_POST['nombre'], $_POST['letra'], $_POST['fecha_composicion']));
