@@ -1,10 +1,18 @@
 <?php include '../include/navbar.html' ?>
 <?php include '../db_config.php' ?>
 <?php
+    session_start();
     //Agregar canciones
     if(isset($_POST['ADD_SONG']) && $_POST['ADD_SONG'] == "true"){
-        $sql = "INSERT INTO canciones (nombre, letra, fecha_composicion) VALUES ($1, $2, $3)";
+        $sql = "INSERT INTO canciones (nombre, letra, fecha_composicion) VALUES ($1, $2, $3) RETURNING id";
         $result = pg_query_params($dbconn, $sql, array($_POST['nombre'], $_POST['letra'], $_POST['fecha_composicion']));
+        $row = pg_fetch_row($result);
+        echo 'a';
+        $id_cancion = $row[0];
+        $sql = " INSERT INTO artista_compuso_cancion (id_artista, id_cancion) VALUES ((SELECT id FROM artistas where nombre=$1), $2);";
+        $result = pg_query_params($dbconn, $sql, array($_SESSION['nombre'] , $id_cancion));
+        $sql = "INSERT INTO album_tiene_cancion (id_album, id_cancion) VALUES ($1, $2);";
+        $result = pg_query_params($dbconn, $sql, array($_POST['id_album'], $id_cancion));
         //TODO: crear alertas de error y exito
     }
 ?>
@@ -35,8 +43,15 @@
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="date">
                                 Fecha de composición
                             </label>
-                            <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name"
+                            <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="grid-date"
                                 type="date" name="fecha_composicion" required>
+                        </div>
+                        <div class="w-full px-3 mb-6 md:mb-0">
+                            <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase" for="date">
+                                ID del álbum
+                            </label>
+                            <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" id="grid-id_album"
+                                type="number" name="id_album" required>
                         </div>
                         <input type="hidden" name="ADD_SONG" value="true">
                     </div>
@@ -53,12 +68,12 @@
                     $sql = "SELECT * FROM canciones";
                     $result_users = pg_query_params($dbconn, $sql, array());
                     if (!$result_users) {
-                        echo "Error al ejecutar la consulta.\n";
+                        echo "Error al ejecutar la consulta.\n";//TODO: crear alertas de error
                         exit;
                     }
                     while ($row = pg_fetch_row($result_users)) {
                         echo '<div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">';
-                        echo '<a href="crud_canciones.php?id_cancion='.htmlspecialchars($row[0]).'">';
+                        echo '<a href="../include/editar_cancion.php?id='.htmlspecialchars($row[0]).'">';
                         echo '<h2 class="text-2xl text-gray-700">'.htmlspecialchars($row[1]).'</h2>';
                         echo '<p class="text-gray-700">'.htmlspecialchars($row[2]).'</p>';
                         echo '</a>';
