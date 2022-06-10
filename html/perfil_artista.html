@@ -1,0 +1,44 @@
+<?php include '../include/navbar.html' ?>
+
+<body>
+    <div id="app">
+        <?php include '../include/sidebar.php' ?>
+        <!-- PÁGINA PRINCIPAL -->
+        <main class="pt-16 sm:pl-64">
+
+            <h1 class="text-xs tracking-wider text-center text-gray-700 uppercase">Perfil</h1>
+
+            <div class="p-3 grid grid-cols-2 gap-2">
+
+                <div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">
+                    Nombre completo: <?php
+                    session_start();
+                    echo htmlspecialchars($_SESSION['nombre']) . " " . htmlspecialchars($_SESSION['apellido']);
+                ?>
+                </div>
+
+                <div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">
+                    Correo: <?php
+                    session_start();
+                    echo htmlspecialchars($_SESSION['email']);
+                ?>
+                </div>
+
+                <div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">
+                    Nombre artístico: <?php
+                    session_start();
+                    echo htmlspecialchars($_SESSION['nombre_artistico']);
+                ?>
+                </div>
+
+                <div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">
+                    Verificado: <?php
+                    session_start();
+                    echo htmlspecialchars($_SESSION['verificado']);
+                ?>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
