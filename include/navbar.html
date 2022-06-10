@@ -6,6 +6,16 @@
         array("name" => "Canciones", "link" => "../html/canciones.html"),
         array("name" => "Cerrar Sesión", "link" => "../include/logout.php"),
     );
+
+    /* ARRAY PARA ARTISTAS */ 
+
+    $artistArray = array(
+        array("name" => "Perfil", "link" => "../html/perfil_usuario.html"),
+        array("name" => "Manejar canciones", "link" => "../html/canciones.html"),
+        array("name" => "Manejar álbumes", "link" => "../html/canciones.html"),
+        array("name" => "Cerrar Sesión", "link" => "../include/logout.php"),
+    );
+    
     $navArray = array(
         array("name" => "Inicio", "link" => "../index.html"),
         array("name" => "Quienes Somos", "link" => "../html/who.html")
@@ -49,8 +59,20 @@
             <?php
             session_start();
             // TODO: Diferenciar entre artista y normal
-            if (isset($_SESSION['nombre'])) {
+            if (isset($_SESSION['nombre']) and $_SESSION['tipo'] == "usuario") {
                 foreach ($profileArray as $nav) {
+                    $blocks .= "<a class='block px-4 py-2 text-black hover:bg-indigo-400' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";
+                }
+                echo "  <div class='p-6'>
+                            <button class='user' href=''>
+                                " . htmlspecialchars($_SESSION['nombre']) . " " . htmlspecialchars($_SESSION['apellido']) . "
+                            </button>
+                            <div class='absolute top-auto hidden py-2 mt-2 bg-white rounded-lg shadow-xl profile'>
+                                " . $blocks . "
+                            </div>
+                        </div>";
+            } elseif ($_SESSION['tipo'] == "artista") {
+                foreach ($artistArray as $nav) {
                     $blocks .= "<a class='block px-4 py-2 text-black hover:bg-indigo-400' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";
                 }
                 echo "  <div class='p-6'>
