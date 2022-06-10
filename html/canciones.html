@@ -1,4 +1,5 @@
 <?php include '../include/navbar.html' ?>
+<?php include '../db_config.php' ?>
 
 <body>
     <div id="app">
@@ -8,8 +9,32 @@
             <div class="p-4">
                 <h1 class="text-xs text-center tracking-wider text-gray-700 uppercase">Canciones</h1>
 
-                <div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">
-                    Canciones re piolas
+                <div class="p-3 grid grid-cols-3 gap-2">
+                    <?php
+                    $sql = "SELECT canciones.nombre, artistas.nombre_artistico, album.nombre, canciones.id FROM artistas
+                    INNER JOIN artista_compuso_cancion ON artistas.id = artista_compuso_cancion.id_artista
+                    INNER JOIN canciones ON artista_compuso_cancion.id_cancion = canciones.id
+                    INNER JOIN album_tiene_cancion ON canciones.id = album_tiene_cancion.id_cancion
+                    INNER JOIN album ON album_tiene_cancion.id_album = album.id";
+                    $result_users = pg_query_params($dbconn, $sql, array());
+
+                    if (!$result_users) {
+                        echo "Error al ejecutar la consulta.\n";
+                        exit;
+                    }
+
+                    while ($row = pg_fetch_row($result_users)) {
+                        echo '<div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">';
+                        
+                        //TODO: Agregar link hacia perfil de la canción
+                        echo '<a href="../include/ver_cancion.php?id=' . htmlspecialchars($row[3]).'">';
+                        echo '<h2 class="text-2xl text-gray-700">'.htmlspecialchars($row[0]).'</h2>';
+                        echo '<p class="text-gray-700">'.htmlspecialchars($row[1]).'</p>';
+                        echo '<p class="text-gray-700">'.htmlspecialchars($row[2]).'</p>';
+                        echo '</a>';
+                        echo '</div>';
+                    }
+                ?>
                 </div>
             </div>
         </main>
