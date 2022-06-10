@@ -14,7 +14,7 @@ $sql = "SELECT * FROM artistas WHERE id = (SELECT id_artista FROM artista_compus
 $result = pg_query_params($dbconn, $sql, array($id));
 $artista = pg_fetch_array($result);
 ?>
-<div class="flex justify-center w-full mt-5">
+<div class="flex justify-center w-full max-w-lg mx-auto mt-5">
     <div class="flex flex-col justify-between">
         <div class="flex p-3 mb-5 bg-pink-200 rounded shadow-xl">
             <img src="<?php echo $album['imagen']; ?>" alt="<?php echo $cancion['nombre']; ?>" class="w-1/2">
