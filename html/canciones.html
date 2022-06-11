@@ -1,5 +1,10 @@
 <?php include '../include/navbar.html' ?>
 <?php include '../db_config.php' ?>
+<?php
+    if($_SESSION['tipo'] !== "usuario"){
+        header("Location: ../index.html");
+    }
+?>
 
 <body>
     <div id="app">
@@ -25,7 +30,7 @@
 
                     while ($row = pg_fetch_row($result_users)) {
                         echo '<div class="p-4 mt-4 font-semibold text-center bg-white rounded shadow hover:shadow-md">';
-                        
+
                         //TODO: Agregar link hacia perfil de la canción
                         echo '<a href="../include/ver_cancion.php?id=' . htmlspecialchars($row[3]).'">';
                         echo '<h2 class="text-2xl text-gray-700">'.htmlspecialchars($row[0]).'</h2>';

@@ -3,6 +3,9 @@
 <?php include '../db_config.php'; ?>
 
 <?php
+if($_SESSION['tipo'] !== "usuario"){
+    header("Location: ../index.html");
+}
 $id = $_GET['id'];
 $sql = "SELECT * FROM canciones WHERE id = $1";
 $result = pg_query_params($dbconn, $sql, array($id));
