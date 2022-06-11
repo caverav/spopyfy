@@ -58,7 +58,6 @@
 
             <?php
             session_start();
-            // TODO: Diferenciar entre artista y normal
             if (isset($_SESSION['nombre']) and $_SESSION['tipo'] == "usuario") {
                 foreach ($profileArray as $nav) {
                     $blocks .= "<a class='block px-4 py-2 text-black hover:bg-indigo-400' href='" . $nav["link"] . "'>" . $nav["name"] . "</a>";

@@ -7,7 +7,6 @@
     if(isset($_POST['ADD_ALBUM']) && $_POST['ADD_ALBUM'] == "true"){
         $sql = "INSERT INTO album (nombre, imagen, fecha_lanzamiento) VALUES ($1, $2, $3)";
         $result = pg_query_params($dbconn, $sql, array($_POST['nombre'], $_POST['imagen'], $_POST['fecha_lanzamiento']));
-        //TODO: crear alertas de error y exito
     }
 ?>
 
@@ -50,8 +49,6 @@
                 </form>
             </div>
                 <?php
-                    //TODO: revisar cuales albumes mostrar
-
                     $sql = "SELECT * FROM album";
                     $result_users = pg_query_params($dbconn, $sql, array());
                     if (!$result_users) {

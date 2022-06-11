@@ -2,8 +2,6 @@
 <?php include '../include/navbar.html'; ?>
 <?php include '../db_config.php'; ?>
 <?php
-//TODO: dejarlo bonito y asegurarse de que se pueda editar la cancion
-
 
 if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     $id = $_POST['id'];

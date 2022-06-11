@@ -16,7 +16,6 @@
         $result = pg_query_params($dbconn, $sql, array($_SESSION['nombre'] , $id_cancion));
         $sql = "INSERT INTO album_tiene_cancion (id_album, id_cancion) VALUES ($1, $2);";
         $result = pg_query_params($dbconn, $sql, array($_POST['id_album'], $id_cancion));
-        //TODO: crear alertas de error y exito
     }
 ?>
 
@@ -66,12 +65,10 @@
                 </form>
             </div>
                 <?php
-                    //TODO: revisar cuales canciones mostrar
-
                     $sql = "SELECT * FROM canciones";
                     $result_users = pg_query_params($dbconn, $sql, array());
                     if (!$result_users) {
-                        echo "Error al ejecutar la consulta.\n";//TODO: crear alertas de error
+                        echo "Error al ejecutar la consulta.\n";
                         exit;
                     }
                     echo '<div class="flex flex-wrap">';

@@ -26,7 +26,6 @@
 
             <?php
             session_start();
-            // TODO: Diferenciar entre artista y normal
             if (isset($_SESSION['nombre']) and $_SESSION['tipo'] == "usuario") {
                 echo "
 
@@ -96,7 +95,6 @@
                             <a class='p-6 font-bold hover:text-secondary-500' href='../html/login.html'> Log In </a>
                         </div>";
             } ?>
-            <!-- TODO: add group here and group-hover to the shevron icon to show it only when the group is hovered -->
 
         </div>
     </div>
