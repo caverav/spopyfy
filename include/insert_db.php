@@ -1,7 +1,6 @@
 <?php
 /* INSERT INTO artistas(nombre, apellido, email, password, nombre_artistico, verificado) VALUES ('admin', 'admin', 'admin@admin.cl', '$2a$10$IAp5vB5LcBd.fyw3OIKzz.tib6BJg2i6U01Gl3yQb7ek62ECkqliG', 'artistico', TRUE); */
     require dirname(__DIR__).'/db_config.php';
-    ini_set('display_errors', 1);
 
     $email = $_POST["email"];
     $password = $_POST["password"];
