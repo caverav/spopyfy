@@ -6,6 +6,12 @@
     }
 ?>
 
+<?php
+    if($_SESSION['tipo'] == "artista"){
+        header("Location: ../index.html");
+    }
+?>
+
 <body>
     <div id="app">
         <?php include '../include/sidebar.php' ?>
